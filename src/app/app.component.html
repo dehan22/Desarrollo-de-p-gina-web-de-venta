@@ -1,0 +1,46 @@
+<div>
+	<div id="navegador">
+		<div class="logo">
+			<a [routerLink]="['']"><img class="logo" src="/assets/logo.png"/></a> <!--Logo de la empresa con link a home-->
+		</div>
+		<div id="navegador2">
+			<ul>
+				<ng-container *ngIf="inSession; else Links">	<!-- Debe mostrarse si el usuario inicio secion-->
+				<li><a href="" (click)="logout()"> Salir </a></li>
+				<li><a [routerLink]="['/perfil',User.id]">Perfil</a></li>
+				</ng-container>
+				<ng-template #Links>							<!-- Debe mostrarse si el usuario no inicio secion-->
+				<li><a [routerLink]="'/sesion'"> Iniciar Sesion </a></li>
+				</ng-template>
+			</ul>
+		</div>
+	</div>
+	<br/> 
+	<div>
+	<router-outlet></router-outlet>
+	</div>
+	<br/><br/> 
+	<div>
+	<div class="piepag">
+		<div class="pieblock">
+			<div>
+				<b class="letra" style="font-size: 50px; color: white;">¡el paseo<br/></b>
+				<a style="font-size: 50px;color: white;">te lo lleva!</a>
+			</div>
+		</div>
+		<div class="pieblock" style="right: 35%; top: 10%;">
+			<a class="letra"><img src="/assets/facebook.png"/>@paseo.unlp</a>
+		</div>
+		<div class="pieblock" style="right: 35%; top: 55%">
+			<a class="letra"><img src="/assets/instagram.png">@paseo.unlp</a>
+		</div>
+		<div class="pieblock" style="right: 0%; top: 55%">
+			<a class="letra"><img src="/assets/mail.png">paseosocial@gmail.com</a>
+		</div>
+		<div class="pieblock" style="right: 0%; top: 10%">
+			<a class="letra"><img src="/assets/wzp.png">1173619930</a>
+		</div>
+	</div>
+</div>	
+
+

@@ -1,0 +1,31 @@
+<div>
+    <ng-container *ngIf="Usuario.tipo_usuario === 'Cliente'">
+    <h3 class="letra" style="font-size: 30px; text-align: center; padding: 50px 0;">¡El Paseo, te lo lleva! Comercializadora de la Economía Popular, social y Solidaria.</h3>
+    <section class="quienes-somos">
+        <h2 class="letra" style="font-size: 50px;">Quiénes Somos</h2>
+        <pre class="letra" id="contenido" [innerHTML]="contenido"></pre>
+        <ul>
+            <li class="letra">Compromiso con la calidad</li>
+            <li class="letra">Atención al cliente</li>
+            <li class="letra">Innovación</li>
+        </ul>   
+    </section>
+    </ng-container>
+    <ng-container *ngIf="Usuario.tipo_usuario === 'Administrador'">
+        <div>
+            <h3 class="letra" style="font-size: 30px; text-align: center; padding: 50px 0;">¡El Paseo, te lo lleva! Comercializadora de la Economía Popular, social y Solidaria.</h3>
+            <section class="quienes-somos">
+                <h2 class="letra" style="font-size: 50px;">Quiénes Somos</h2>
+                <pre class="letra" id="contenido" [innerHTML]="contenido"></pre>
+                <ul>
+                    <li class="letra">Compromiso con la calidad</li>
+                    <li class="letra">Atención al cliente</li>
+                    <li class="letra">Innovación</li>
+                </ul>  
+                <h3 style="text-align: center;">Editar Contenido</h3>
+                <textarea style="position: relative; left: 10%;" [(ngModel)]="nuevoContenido" rows="6" cols="80"></textarea><br>
+                <button class="boton" style="position: relative; left: 60%;" (click)="actualizarContenido()">Actualizar Contenido</button>
+        </section>
+        </div>
+    </ng-container>
+</div>

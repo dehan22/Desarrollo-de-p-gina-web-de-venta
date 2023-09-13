@@ -1,0 +1,19 @@
+<div class="col-md-4 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h2>Completá los datos del productor</h2>     
+    <form (ngSubmit)="cargarProductor()">
+        <div class="espacio">
+            <div class="field"><br />
+                <input type="text" id="name" class="form-control primero" [(ngModel)]="nuevoProductor.nombre" name="nombre" placeholder="Nombre" required>
+                <input type="text" id="name" class="form-control segundo" [(ngModel)]="nuevoProductor.apellido" name="apellido" placeholder="apellido" required>
+            </div>
+            <div class="field"><br />
+                <input type="text" class="form-control" [(ngModel)]="nuevoProductor.email" name="email" placeholder="Email" required>
+            </div>
+            <div class="field"><br />
+                <input type="number" class="form-control" [(ngModel)]="nuevoProductor.dni" name="dni" placeholder="DNI">
+            </div>
+           <br/>
+            <button class="boton" type="submit">Cargar productor</button>
+        </div>
+    </form>
+</div>

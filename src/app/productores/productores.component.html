@@ -1,0 +1,27 @@
+<div>
+    <div>
+    	<h3 style="text-align: center;">Lista de Productores</h3>
+        <br/>
+        <a class="btn btn-primary black-background" style="position: relative; left: 85%;" [routerLink]="['/productor/new']" role="button">Agregar productor</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Estado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let productor of productores">
+                <td>{{ productor.nombre }}</td>
+                <td>{{ productor.apellido }}</td>
+                <td>{{ productor.email }}</td>
+                <td>{{ productor.enable }}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/perfil', productor.id]" role="button">Ver perfil</a></td>
+                <td><a class="btn btn-danger black-background" [routerLink]="['/perfil',productor.id,'delete']" role="button">Eliminar</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<ng-container *ngIf="Usuario.tipo_usuario ==='Cliente'">
+  <div>
+    <div>
+      <h3 style="text-align: center;">Productos</h3>
+        <br/>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Detalles</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prod of productos">
+                <td>{{ prod.nombre }}</td>
+                <td>{{ prod.precio_unitario }}</td>
+                <td>{{ prod.stock }}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/producto',prod.id]" role="button">Ver Producto</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="Usuario.tipo_usuario ==='Administrador'">
+  <div>
+    <div>
+      <h3 style="text-align: center;">Productos</h3>
+        <br/>
+        <a class="btn btn-primary black-background" style="position: relative; left: 85%;" [routerLink]="['/producto/new']" role="button">Nuevo Producto</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Detalles</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prod of productos">
+                <td>{{ prod.nombre }}</td>
+                <td>{{ prod.precio_unitario }}</td>
+                <td>{{ prod.stock }}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/producto',prod.id]" role="button">Ver Producto</a></td>
+                <td><a class="btn btn-danger black-background" [routerLink]="['/producto',prod.id,'delete']" role="button">Eliminar</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</ng-container>

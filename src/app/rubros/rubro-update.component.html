@@ -1,0 +1,17 @@
+<ng-container *ngIf="Usuario.tipo_usuario === 'Administrador'">
+    <div class="col-md-4 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+        <h4 class="espacio">Completá los nuevos datos del rubro</h4>     
+        <form (ngSubmit)="updateRubro()">
+            <div>
+                <div class="field"><br/>
+                    <input type="text" id="name" class="form-control" [(ngModel)]="Rubro.nombre" name="nombre" placeholder="Nombre del rubro" required>
+                </div>
+                <div class="field"><br />
+                    <input type="text" class="form-control" [(ngModel)]="Rubro.descripcion" name="descripcion" placeholder="Descripcion">
+                </div>
+                <br/>
+                <button class="boton" type="submit">Actualizar Rubro</button>
+            </div>
+        </form>
+    </div>
+</ng-container>

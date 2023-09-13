@@ -1,0 +1,43 @@
+<div>
+    <div class="pedido">
+    	<h2>Detalles del pedido</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Pedido</th>
+            </tr>
+          </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Precio Total</th>
+          <td><a>{{pedido?.preciototal}}</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Forma de entrega</th>
+          <td><a>{{pedido?.forma_entrega}}</a></td>
+        </tr>
+        <tr *ngIf="pedido?.forma_entrega === 'Domicilio'">
+          <th scope="row">Franja horaria - Inicio:</th>
+          <td><a>{{pedido?.hora_inicio}}</a></td>
+        </tr>
+        <tr *ngIf="pedido?.forma_entrega === 'Domicilio'">
+          <th scope="row">Franja horaria - Fin:</th>
+          <td><a>{{pedido?.hora_fin}}</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Confirmado</th>
+          <td><a class="check-icon" [ngClass]="{'checked': pedido?.confirmado}"></a></td>
+        </tr>
+        <tr>
+          <th scope="row">Direccion:</th>
+          <td><a>{{pedido?.direccion?.calle}} N° {{pedido?.direccion?.numero}}</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Entregado</th>
+          <td><a class="check-icon" [ngClass]="{'checked': pedido?.entregado}"></a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary black-background"  [routerLink]="['/pedido',pedido?.id,'/confirmar']" role="button">Confirmar pedido</a>
+    </div>
+</div>

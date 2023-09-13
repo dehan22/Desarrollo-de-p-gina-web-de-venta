@@ -1,0 +1,24 @@
+<div>
+    <div>
+    	<h3 style="text-align: center;">Estas son tus ultimas compras</h3>
+        <br/>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Realizado el dia</th>
+                <th>Precio total</th>
+                <th>Cantidad de productos</th>
+                <th>Detalles</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pedido of pedidos">
+                <td *ngIf="pedido.ronda !== undefined">{{pedido.ronda.f_inicio[2]}}/{{pedido.ronda.f_inicio[1]}}/{{pedido.ronda.f_inicio[0]}}</td>
+                <td>{{ pedido.preciototal }}</td>
+                <td>{{ pedido.productos.length }}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/pedido', pedido.id]" role="button">Ver pedido</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="col-md-12 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h2 class="espacio">Completá los datos para crear tu cuenta</h2>     
+    <form (ngSubmit)="registrarUsuario()">
+        <div class="espacio">
+            <div class="field"><br />
+                <input style="display: inline; width: 47%; padding: 0,0,0,0; margin:0px 5% 0px 0px;" type="text" id="name" class="form-control" [(ngModel)]="nuevoUsuario.nombre" name="nombre" placeholder="Nombre" required>
+                <input style="display: inline; width: 47%; padding: 0,0,0,0;" type="text" id="name" class="form-control" [(ngModel)]="nuevoUsuario.apellido" name="apellido" placeholder="apellido" required>
+            </div>
+            <div class="field"><br />
+                <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.email" name="email" placeholder="Email" required>
+            </div>
+            <div class="field"><br />
+                <input type="text" class="form-control" [(ngModel)]="nuevoUsuario.nom_usuario" name="Nombre de Usuario" placeholder="Nombre de Usuario">
+            </div>
+            <div class="field"><br />
+                <input type="password" id="Contraseña" class="form-control" [(ngModel)]="nuevoUsuario.clave" name="clave" placeholder="Contraseña" required>
+            </div>
+            <div class="field"><br />
+                <input type="number" class="form-control" [(ngModel)]="nuevoUsuario.dni" name="dni" placeholder="DNI">
+            </div>
+           <br/>
+            <button class="boton" type="submit">Registrame</button>
+        </div>>
+    </form>
+</div>

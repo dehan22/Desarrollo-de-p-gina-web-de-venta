@@ -1,0 +1,10 @@
+.perfil{ /*se esta usando para la muestra de datos personales*/
+	position: relative;
+	width:50%;	
+	left:25%;
+    color:#f50301;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #f50301;
+    box-shadow: 0px 1px 0px #f50301;
+    border-radius: 20px;
+}

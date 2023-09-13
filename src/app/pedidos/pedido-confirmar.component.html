@@ -1,0 +1,36 @@
+<div class="col-md-12 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h2 class="espacio">¿Desea confirmar el pedido?</h2>     
+    <form (ngSubmit)="confirmarPedido()">
+        <div class="espacio">
+            <div class="field"><br />
+                    <select #entrega (change)="onSelected(entrega.value)">
+                        <option default>Seleccione un metodo</option>
+                        <option>Domicilio</option>
+                        <option>Retiro</option>
+                    </select>
+                </div>
+                <div *ngIf="tipoEntrega==='Domicilio'">
+                    <h2>Seleccione a que direccion desea recibir su pedido:</h2>
+                    <select class="form-select" [(ngModel)]="direccionEntrega" id="direccion" name="direccion">
+                        <option *ngFor="let direccion of direcciones" [ngValue]="direccion">{{ direccion.calle }} Nº {{direccion.numero}}, {{direccion.barrio}}, {{direccion.ciudad}} </option>
+                    </select>
+                    <p default>Seleccione una fecha para recibir el pedido:</p>
+                    <select class="form-select" [(ngModel)]="fechaEntrega" id="fecha" name="fecha">
+                        <option *ngFor="let fecha of fechas" [ngValue]="fecha">{{ fecha.toLocaleDateString() }} de 12hs a 18hs </option>
+                    </select>
+                    <div class="field"><br/>
+                        <label>Hora preferida para delivery - Inicio:</label><label style="margin-left: 29%;">Hora preferida para delivery - Fin:</label><br/>
+                        <input type="time" id="pedidoHoraInicio" class="form-control segundo" [(ngModel)]="pedido.hora_inicio" name="pedidoHoraInicio" placeholder="Inicio de franja horaria para delivery" min="12:00:00" max="17:00:00" required>
+                        <input type="time" class="form-control segundo" [(ngModel)]="pedido.hora_fin" name="pedidoHoraFin" min="13:00:00" max="18:00:00"placeholder="Fin de franja horaria para delivery">
+                    </div>
+                </div>
+                <div *ngIf="tipoEntrega==='Retiro'">
+                    <h2>Seleccione en que punto de retiro desea retirar su pedido:</h2>
+                    <select class="form-select" [(ngModel)]="puntoRetiro" id="puntoRetiro" name="puntoRetiro">
+                        <option *ngFor="let punto of puntos" [ngValue]="punto">{{ punto.direccion.calle }} Nº {{punto.direccion.numero}}, {{punto.direccion.barrio}}, {{punto.direccion.ciudad}} </option>
+                    </select>
+                </div>
+            <input class="btn btn-primary black-background" type="submit" value="Confirmar pedido">
+        </div>
+    </form>
+</div>

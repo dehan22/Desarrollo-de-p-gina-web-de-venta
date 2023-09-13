@@ -1,0 +1,36 @@
+.espacio{
+  width: 25%;
+  box-sizing: border-box;
+  margin: auto;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #f50301;
+  color:#f50301;
+  box-shadow: 0px 1px 0px #f50301;
+}
+.boton{
+  padding: 10px 20px 10px 20px;
+  color: #eeee;
+  background-color: #f50301;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid  #f50301;
+  border-radius: 20px;
+}
+.boton:hover{
+  border: 1px solid #f50301;
+  border-radius: 20px;
+  color: #eeee;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0px 3px 0px #f50301;
+}
+.boton:active{
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #f50301;
+  color: #eeee;
+  background-color: #d44141de;
+  box-shadow: 0px 1px 0px #f50301;
+}

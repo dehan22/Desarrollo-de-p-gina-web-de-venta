@@ -1,0 +1,36 @@
+<div>
+    <div>
+    	<h3 style="text-align: center;">Lista de Pedidos Registrados</h3>
+        <br/>
+        <a class="btn btn-primary black-background" style="position: relative; left: 67%;" [routerLink]="['/pedidos-productor']" role="button">Pedidos por productor</a>
+      <a class="btn btn-primary black-background" style="position: relative; left: 68%;" [routerLink]="['/pedidos-forma-entrega']" role="button">Pedidos por forma de entrega</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Identificador</th>
+                <th>Realizado por</th>
+                <th>Precio total</th>
+                <th>Cantidad de productos</th>
+                <th>Confirmado</th>
+                <th>Entregado</th>
+                <th>Detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ped of pedidos">
+                <td>{{ ped.id }}</td>
+                <td *ngIf="ped.usuario !== undefined">{{ ped.usuario.nombre }} {{ ped.usuario.apellido }}</td>
+                <td>{{ ped.preciototal }}</td>
+                <td *ngIf="ped.productos !== null">{{ ped.productos.length }}</td>
+                <td>{{ ped.confirmado }}</td>
+                <td>{{ ped.entregado }}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/pedido', ped.id]" role="button">Ver pedido</a></td>
+                <td><a class="btn btn-danger black-background" [routerLink]="['/pedido', ped.id, 'cancelar']" role="button">Eliminar</a></td>
+                <td><a *ngIf="ped.confirmado=== true" class="btn btn-primary black-background" [routerLink]="['/pedido', ped.id, 'entregar']" role="button">Marcar como entregado</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+  

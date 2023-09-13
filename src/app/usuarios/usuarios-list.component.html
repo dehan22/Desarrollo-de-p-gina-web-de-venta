@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <h3 style="text-align: center;">Lista de Usuarios Registrados</h3>
+      <br/>
+      <table class="table table-striped">
+          <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Roll</th>
+              <th>Estado</th>
+              <th>Perfil</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of usuarios">
+              <td >{{ user.nombre }}</td>
+              <td>{{ user.apellido }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.telefono }}</td>
+              <td>{{ user.tipo_usuario }}</td>
+              <td>{{ user.enable }}</td>
+              <td><a class="btn btn-primary black-background" [routerLink]="['/perfil', user.id]" role="button">Ver perfil</a></td>
+              <td><a class="btn btn-danger black-background" [routerLink]="['/perfil',user.id,'delete']" role="button">Eliminar</a></td>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

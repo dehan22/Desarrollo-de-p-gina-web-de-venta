@@ -1,0 +1,27 @@
+<div class="col-md-4 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h4 class="espacio">Completá los datos nuevos del producto</h4>     
+    <form (ngSubmit)="modificarProducto()">
+        <div class="espacio">
+            <div class="field"><br/>
+                <input type="text" id="name" class="form-control primero" [(ngModel)]="Producto.nombre" name="nombre" placeholder="Nombre del producto" required>
+                <input type="number" id="name" class="form-control segundo" [(ngModel)]="Producto.precio_unitario" min="0" name="precio_unitario" placeholder="precio por unidad" required>
+            </div>
+            <div class="field"><br />
+                <input type="number" class="form-control" [(ngModel)]="Producto.stock" min="0" name="stock" placeholder="Cantidad disponible" required>
+            </div>
+            <div class="field"><br />
+                <input type="text" class="form-control" [(ngModel)]="Producto.descripcion" name="descripcion" placeholder="Descripcion">
+            </div>
+            <div class="field-group"><br />
+                <select class="form-select primero" [(ngModel)]="Producto.productor" id="productor" name="productor">
+                    <option *ngFor="let productor of productores" [value]="productor">{{ productor.nombre }}</option>
+                </select>
+                <select class="form-select segundo" [(ngModel)]="Producto.rubro" id="rubro" name="rubro">
+                    <option *ngFor="let rubro of rubros" [value]="rubro">{{ rubro.nombre }}</option>
+                </select>
+            </div>
+           <br/>
+            <button class="boton" type="submit">Actualizar Producto</button>
+        </div>
+    </form>
+</div>

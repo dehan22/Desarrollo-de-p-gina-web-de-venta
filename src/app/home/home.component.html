@@ -1,0 +1,76 @@
+<div>
+	<ng-container *ngIf="tipoUsuario === 'Cliente'"> <!--Usuario-->
+		<div id="navegadorr"> 
+		    <ul> <!--panel de navegacion-->
+		    	<li><a [routerLink]="'/productos'"> Productos </a></li>
+		        <li><a href="#"> Combos/Canastas </a></li>
+		        <li><a [routerLink]="['/historial', Usuario.id]"> Compras Realizadas </a></li>
+		        <li><a [routerLink]="'quienes-somos'"> Quienes Somos </a></li>
+			    <a [routerLink]="['/carrito', Usuario.id]"><img class="carrito" src="/assets/carrito.png"/></a>
+		    </ul>
+			<br><br><br><br><br><br><br><br><br><br>		   		
+		</div>
+	</ng-container>
+	<ng-container *ngIf="tipoUsuario === 'Invitado'"><!--Invitado-->
+		<div class="jumbotron letra">
+			<div class="text-center">
+				<h1 class="display-4" style="padding: 50px 0 0 0;">Hola, Bienvenido!</h1>
+				<p class="lead">El Paseo Te Lo Lleva ofrece los mejores productos,</p>
+				<p class="lead">para productos express no dudes en consultar nuestros combos.</p>
+				<hr class="my-4">
+				<p>Registrate para realizar compras!!</p>
+				<a class="btn btn-primary btn-lg black-background crear" routerLink="registracion" role="button">Registrate!</a>
+			</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="tipoUsuario === 'Administrador'">
+		<div id="navegadorr"> 
+			<ul> <!--panel de navegacion-->
+			   <li><a [routerLink]="'usuarios'"> Usuarios </a></li>
+			   <li><a [routerLink]="'productos'"> Productos </a></li>
+			   <li><a [routerLink]="'productores'"> Productores </a></li>
+			   <li><a [routerLink]="'pedidos'"> Pedidos</a></li>
+			   <li><a [routerLink]="'rubros'"> Rubros </a></li>
+			   <li><a [routerLink]="'puntos_retiro'"> Puntos de retiro </a></li>
+			   <li><a [routerLink]="'rondas'"> Rondas </a></li>
+			   <li><a [routerLink]="'quienes-somos'"> Nosotros </a></li>
+			</ul>		   		
+	   	</div>
+		<br>
+		<div class="statistics-container">
+			<div class="statistic">
+				<h2>Ventas</h2>
+				<p>Total: 100</p>
+			</div>
+			<div class="statistic">
+				<h2>Usuarios Conectados</h2>
+				<p>Total: 50</p>
+			</div>
+			<div class="statistic">
+				<h2>Usuarios Registrados</h2>
+				<p>Total: 200</p>
+			</div>
+		</div>
+	
+		<div class="statistics-container">
+			<table>
+				<tr>
+					<th>Categoría</th>
+					<th>Cantidad</th>
+				</tr>
+				<tr>
+					<td>Ventas</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>Usuarios Conectados</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>Usuarios Registrados</td>
+					<td>200</td>
+				</tr>
+			</table>
+		</div>
+	</ng-container>
+</div>

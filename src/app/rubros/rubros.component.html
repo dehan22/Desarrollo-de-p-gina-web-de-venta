@@ -1,0 +1,26 @@
+<div>
+    <div>
+    	<h3 style="text-align: center;">Lista de Rubros</h3>
+        <br/>
+        <a class="btn btn-primary black-background" style="position: relative; left: 67%;" [routerLink]="['/rubro/new']" role="button">Nuevo Rubro</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre del rubro</th>
+                <th>Descripcion</th>
+                <th>Estado</th>
+                <th>Detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rubro of rubros">
+                <td>{{ rubro.nombre }}</td>
+                <td>{{ rubro.descripcion }}</td>
+                <td>{{ rubro.enable}}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/rubro', rubro.id]" role="button">Ver Rubro</a></td>
+                <td><a class="btn btn-danger black-background" [routerLink]="['/rubro', rubro.id, 'delete']" role="button">Eliminar</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

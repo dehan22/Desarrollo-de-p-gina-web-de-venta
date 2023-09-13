@@ -1,0 +1,23 @@
+.Domicilios {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+.primero{
+    display: inline;
+    width: 47%;
+    padding: 0,0,0,0;
+    margin:0px 5% 0px 0px;
+}
+.segundo{
+    display: inline;
+    width: 47%;
+    padding: 0,0,0,0;
+}
+.letra{
+    font-size: 18px;
+    color: black;
+}

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'BreeBold';
+    src: url('../src/assets/fonts/BreeBold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  .letra {
+    font-family: 'BreeBold';
+    text-decoration: none;
+    font-size: 30px; color: white;
+  }

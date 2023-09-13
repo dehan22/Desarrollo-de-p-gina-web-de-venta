@@ -1,0 +1,100 @@
+<div class="perfil">
+  <ng-container *ngIf="ok ==='verMiPerfil'"><!-- Si es cliente o admin-->
+    <h4>Datos Personales</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Perfil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Nombre</th>
+          <td><span>{{User.nombre}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Apellido</th>
+          <td><span>{{User.apellido}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Nombre de Usuario</th>
+          <td><span>{{User.nom_usuario}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td><span>{{User.email}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">DNI</th>
+          <td><span>{{User.dni}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary black-background" style="border: solid #d44141" [routerLink]="['/perfil', User.id,'update']" role="button">Editar Perfil</a>
+    <a *ngIf="User.tipo_usuario === 'Cliente'"class="btn btn-primary black-background" style="border: solid #d44141" [routerLink]="['/direcciones']" role="button">Direcciones</a>
+  </ng-container>
+  <ng-container *ngIf="ok === 'verCliente'"><!-- Si es cliente visto desde el administrador -->
+    <ng-container *ngIf="usuario?.tipo_usuario === 'Cliente'; else productor">
+      <h4>Datos de la persona</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Perfil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Nombre</th>
+            <td><span>{{usuario?.nombre}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Apellido</th>
+            <td><span>{{usuario?.apellido}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Nombre de Usuario</th>
+            <td><span>{{usuario?.nom_usuario}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td><span>{{usuario?.email}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">DNI</th>
+            <td><span>{{usuario?.dni}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-primary black-background" style="border: solid #d44141" [routerLink]="['/perfil', usuario?.id,'update']" role="button">Editar Perfil</a>
+    </ng-container>
+    <ng-template #productor>
+      <h4>Datos del productor</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Perfil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Nombre</th>
+            <td><span>{{usuario?.nombre}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Apellido</th>
+            <td><span>{{usuario?.apellido}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td><span>{{usuario?.email}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">DNI</th>
+            <td><span>{{usuario?.dni}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-primary black-background" style="border: solid #d44141" [routerLink]="['/perfil', usuario?.id,'update']" role="button">Editar Perfil</a>
+    </ng-template>
+  </ng-container>
+</div>

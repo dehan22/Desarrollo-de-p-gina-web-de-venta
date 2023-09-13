@@ -1,0 +1,25 @@
+<div class="col-md-4 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->    
+    <table class="table table-striped" style="position: relative; left: 100%;">
+        <thead>
+          <tr>
+            <th scope="col">Datos del Rubro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Nombre</th>
+            <td><span>{{Rubro.nombre}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Descripcion</th>
+            <td><span>{{Rubro.descripcion}}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Estado</th>
+            <td><span>{{Rubro.enable}}</span></td>
+          </tr>
+        </tbody>
+        <a class="btn btn-primary black-background" style="border: solid #d44141" [routerLink]="['/rubro', Rubro.id,'update']" role="button">Modificar rubro</a>
+      </table>
+</div>
+<br/><br/><br/>

@@ -1,0 +1,21 @@
+<ng-container *ngIf="Usuario.tipo_usuario === 'Administrador'">
+    <div class="col-md-4 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+        <h4>Completá los datos de la nueva ronda</h4>     
+        <form (ngSubmit)="cargarRonda()">
+            <div>
+                <div class="field"><br/>
+                    <label>Fecha de Inicio</label><label style="margin-left: 25%;">Fecha de Fin</label><br/>
+                    <input type="datetime-local" id="fechaInicio" class="form-control segundo" [(ngModel)]="nuevaRonda.f_inicio" name="fechaInicio" placeholder="Fecha de Inicio" required>
+                    <input type="datetime-local" class="form-control segundo" [(ngModel)]="nuevaRonda.f_fin" name="fechaFin" placeholder="fechaFin">
+                </div>
+                <div class="field"><br/>
+                    <label>Fecha de Retiro - Inicio:</label><label style="margin-left: 12%;">Fecha de Retiro - Fin:</label><br/>
+                    <input type="datetime-local" id="fechaRetirosInicio" class="form-control segundo" [(ngModel)]="nuevaRonda.f_retiro_inicio" name="fechaRetirosInicio" placeholder="Fecha de Retiros Inicial" required>
+                    <input type="datetime-local" class="form-control segundo" [(ngModel)]="nuevaRonda.f_retiro_fin" name="fechaRetirosFin" placeholder="Fecha de Retiros Final">
+                </div>
+                <br/>
+                <button class="boton" type="submit">Cargar Ronda</button>
+            </div>
+        </form>
+    </div>
+</ng-container> 

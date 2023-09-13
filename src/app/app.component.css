@@ -1,0 +1,79 @@
+/*Hoja de estilos, todo lo que se cree aca sera remplazado por css para darle formato personalizado a html.*/
+.logo{ /*se esta usando para la el logo principal*/
+    margin: 0 0 0 0;
+    width: 120px;
+    height: 120px;
+   display: inline;
+ }
+ #navegador{ /*se esta usando para la el logo principal*/
+    height: 110px;
+ }
+ /*Application -Inicio-*/
+ #navegador ul{
+     width:100%;
+     list-style: none;
+     margin:0px;
+     padding: 0px;
+ 
+ }
+ #navegador li{
+    position: relative;
+    bottom: 115px;
+     float:right;
+    display: inline;
+    text-align: center;
+    margin: 0 10px 0 0;
+ }
+ #navegador li a {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    color:#f50301;
+    background-color: #ffff;
+    text-decoration: none;
+    font-weight: bold;
+ }
+ #navegador li a:hover{
+    border: 1px solid #f50301;
+    border-radius: 20px;
+    color:#f50301;
+    padding: 10px 20px 10px 20px;
+ }
+ #navegador li a:active{
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    background-color: #ffcdcd;
+    border: 1px solid #f50301;
+    color:#f50301;
+ }
+ .pie{
+   margin:0px;
+   height: auto;
+   max-width: 100%;
+   max-height: 100%;
+   text-align: center;
+   padding: 0;
+   bottom: 0;
+   width: 100%;
+   position: relative;
+}
+.pie img {
+   width: 100%;
+   height: auto;
+ }
+ .piepag{
+   background-color:#f50301;
+   margin:0px;
+   height: 150px;
+   max-width: 100%;
+   max-height: 100%;
+   text-align: center;
+   padding: 0;
+   bottom: 0;
+   width: 100%;
+   position: sticky;
+ }
+ .pieblock {
+   position: absolute;
+   width: 400px;
+   height: 40px;
+}

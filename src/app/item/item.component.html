@@ -1,0 +1,8 @@
+<div>
+    <div>
+        <p>Producto: {{item.producto.nombre}}</p>
+        <input type="number" id="cantidad" class="form-control primero" [(ngModel)]="item.cantidad" (ngModelChange)="actualizarPrecio($event)" min="1" max="{{item.producto.stock}}" name="cantidad" placeholder="Cantidad" required>
+        <p>Precio: {{precio_total}}</p>
+        <a style="display: inline-block; color: blue;" (click)="eliminar() " role="button">Eliminar</a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<ng-container *ngIf="ok ==='verMisDirecciones'">
+    <div>
+        <h4>Domicilios</h4>
+        <div class="Domicilios" *ngFor="let dir of Direcciones" >
+            <div>
+                <b><h3>{{dir.calle}} {{dir.numero}}</h3></b> <a class="btn btn-primary black-background" [routerLink]="['/direccion', dir.id,'update']" role="button">Editar</a>
+                <h4>Código Postal {{dir.codigo_postal}} - {{dir.ciudad}} - {{dir.barrio}}</h4>
+            </div>
+            <hr class="my-4">
+        </div>
+        <div class="Domicilios">
+            <a class="btn btn-primary black-background" [routerLink]="['/direccion/new']" role="button">Agregar Domicilio</a>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="ok ==='verDireccionesPunto'">
+    <div>
+        <h4>Domicilios</h4>
+        <div class="Domicilios" *ngFor="let dir of Direcciones" >
+            <div class="Domicilios" *ngFor="let dir of Direcciones" >
+                <div>
+                    <b><h3>{{dir.calle}} {{dir.numero}}</h3></b> <a class="btn btn-primary black-background" [routerLink]="['/direccion', dir.id,'update']" role="button">Editar</a>
+                    <h4>Código Postal {{dir.codigo_postal}} - {{dir.ciudad}} - {{dir.barrio}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

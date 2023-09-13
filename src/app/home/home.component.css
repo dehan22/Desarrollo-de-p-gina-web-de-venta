@@ -1,0 +1,94 @@
+/*Application -Homes-*/
+#navegadorr ul{
+	width:100%;
+	list-style: none;
+	margin:20px 0 0 0;
+	padding: 15px;
+   background-color: #f50301;
+
+}
+#navegadorr li{
+   display: inline;
+   text-align: center;
+   margin: 0 20px 0 20px;
+}
+#navegadorr li a{
+   padding: 10px 20px 10px 20px;
+   color:#f50301;
+   background-color: #ffffff;
+   text-decoration: none;
+   font-weight: bold;
+   border: 1px solid #f50301;
+   border-radius: 20px;
+}
+#navegadorr li a:hover{
+   border: 1px solid #f50301;
+   border-radius: 20px;
+   color:#f50301;
+   padding: 10px 20px 10px 20px;
+   box-shadow: 0px 3px 0px #f50301;
+}
+#navegadorr li a:active{
+   border-radius: 20px;
+   padding: 10px 20px 10px 20px;
+   background-color: #ffcdcd;
+   border: 1px solid #f50301;
+   color:#f50301;
+   box-shadow: 0px 1px 0px #f50301;
+}
+
+.black-background { /*Para cambiar color del boton de bootstrap*/
+   background-color:#f50301;
+}
+.black-background:hover{ /*Para cambiar color del boton de bootstrap*/
+   background-color:#f50301;
+   box-shadow: 0px 5px 5px #f50301;
+}
+.derecha {
+   position: relative;
+   left: 25%;
+   width: 70%;
+}
+
+.crear{ /*Para cambiar color del boton de bootstrap*/
+   background-color:#f50301;
+   color:white;
+   border-color: #f50301;
+   
+}
+.crear:hover{ /*Para cambiar color del boton de bootstrap*/
+   background-color:#f50301;
+   box-shadow: 0px 5px 5px #f50301;
+   border-color: #f50301;
+}
+.jumbotron{/*Se aplica la vista inicial de la pagina.*/
+   position: relative;
+   bottom: 86px;
+}
+.carrito{/*Se aplica la vista del carrito.*/
+   width: 50px;
+   position:relative;
+   left: 30%;
+}
+.letra{
+   color: rgb(24, 4, 4);
+}
+
+.statistic {
+   text-align: center;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #fff;
+}
+table {
+   width: 100%;
+}
+table, th, td {
+   border: 1px solid #ccc;
+   border-collapse: collapse;
+}
+th, td {
+   padding: 8px;
+   text-align: left;
+}

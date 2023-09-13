@@ -1,0 +1,30 @@
+<div>
+    <div>
+    	<h3 style="text-align: center;">Lista de Rondas</h3>
+        <br/>
+        <a class="btn btn-primary black-background" style="position: relative; left: 67%;" [routerLink]="['/ronda/new']" role="button">Nueva Ronda</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Inicio fecha de entrega</th>
+                <th>Cierre fecha de entrega</th>
+                <th>Estado</th>
+                <th>Detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ronda of rondas">
+                <td>{{ ronda.f_inicio }}</td>
+                <td>{{ ronda.f_fin }}</td>
+                <td>{{ ronda.f_retiro_inicio }}</td>
+                <td >{{ ronda.f_retiro_fin }}</td>
+                <td>{{ ronda.enable}}</td>
+                <td><a class="btn btn-primary black-background" [routerLink]="['/ronda', ronda.id]" role="button">Ver Ronda</a></td>
+                <td><a class="btn btn-danger black-background" [routerLink]="['/ronda', ronda.id, 'delete']" role="button">Eliminar</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

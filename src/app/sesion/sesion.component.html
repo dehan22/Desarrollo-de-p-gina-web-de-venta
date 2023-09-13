@@ -1,0 +1,16 @@
+<div class="col-md-12 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h2 class="espacio">Ingresá tus datos</h2>     
+    <form (ngSubmit)="session()">
+        <div class="espacio">
+            <div class="field"><br/>
+            <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="field"><br/>
+                <input type="password" class="form-control" [(ngModel)]="clave" name="clave" placeholder="Clave" required>
+                </div>
+            <br/>
+            <button class="boton" type="submit">Iniciar Sesion</button>
+        </div>
+    </form>
+</div>
+<br/><br/><br/>

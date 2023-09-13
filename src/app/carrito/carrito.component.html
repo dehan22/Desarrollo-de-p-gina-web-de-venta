@@ -1,0 +1,40 @@
+<div>
+  <ng-container *ngIf="items.length !== 0; else descubrir">
+    <div class="pedido">
+      <h3>Detalles del carrito</h3>
+      <table class="table table-striped">
+        <ul>
+          <li *ngFor="let item of items">
+            <app-item [id] = 'item.id' *ngIf="item.id !==undefined" (actualizarPrecioTotal)="actualizaPrecioTotal($event, item.id)" (productoEliminado)="eliminarProducto($event)"></app-item>
+            <a class="btn btn-primary black-background" [routerLink]="['/producto', item.producto.id]" role="button">ver Producto</a>
+          </li>
+        </ul>
+        <thead>
+            <tr>
+              <th scope="col">Pedido</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+           <th scope="row">Precio Total</th>
+            <td><a>{{precio_total_pedido}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <a  *ngIf="(pedido !==undefined && deshabilitarBoton === false)" class="btn btn-primary black-background boton" style="position:relative; left: 70%;"  [routerLink]="['/pedido',pedido.id,'confirmar']" role="button" >Confirmar pedido</a>
+      <a  *ngIf="(pedido !==undefined && deshabilitarBoton === true)" class="btn btn-primary black-background boton disabled" style="position:relative; left: 70%;"  [routerLink]="['/pedido',pedido.id,'confirmar']" role="button" aria-disabled="true">Confirmar pedido</a>
+      <a class="btn btn-primary black-background boton" style="position:relative; left: 71%;"  [routerLink]="['/productos']" role="button">Seguir Comprando</a>  
+    </div>
+  </ng-container>
+  <ng-template #descubrir>
+    <section class="descubrir">
+      <br/><br/>
+      <img class="bolsa" style="position:relative; left: 42%" src="/assets/bolsa.png"/>
+      <br/><br/>
+      <b class="letra" style="color: black; font-size: 150%;position:relative; left: 27%">¡Empieza un carrito de compras!</b>
+      <br/><br/>
+      <a class="btn btn-primary black-background boton" style="position:relative; left: 37%"  [routerLink]="['/productos']" role="button">Descubrir productos</a>
+    </section>
+  </ng-template>
+</div>
+

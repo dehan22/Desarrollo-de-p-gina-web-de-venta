@@ -1,0 +1,68 @@
+<div class="Producto">
+  <ng-container *ngIf="User.tipo_usuario === 'Cliente'"><!-- Si es cliente o admin-->
+    <h4>Datos del producto</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Caracteristicas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Nombre</th>
+          <td><span>{{producto.nombre}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Precio Unitario</th>
+          <td><span>{{producto.precio_unitario}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Cantidad disponible</th>
+          <td><span>{{producto.stock}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Descripcion</th>
+          <td><span>{{producto.descripcion}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Calificacion</th>
+          <td><span>{{producto.calificacion}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary black-background" [disabled]="deshabilitarCompra" (click)="agregarCarrito()"> Agregar al carrito</button>
+  </ng-container>
+  <ng-container *ngIf="User.tipo_usuario === 'Administrador'"><!-- Si es cliente o admin-->
+    <h4>Datos del producto</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Caracteristicas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Nombre</th>
+          <td><span>{{producto.nombre}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Precio Unitario</th>
+          <td><span>{{producto.precio_unitario}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Cantidad disponible</th>
+          <td><span>{{producto.stock}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Descripcion</th>
+          <td><span>{{producto.descripcion}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Calificacion</th>
+          <td><span>{{producto.calificacion}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary black-background" [routerLink]="['/producto', producto.id,'update']" role="button">Editar producto</a>
+  </ng-container>
+</div>

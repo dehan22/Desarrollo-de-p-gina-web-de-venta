@@ -1,0 +1,75 @@
+<ng-container *ngIf="ok ==='modificarMiPerfil'">
+    <div class="col-md-12 text-center;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+        <h2 class="espacio">Actualizando Perfil</h2>     
+        <form (ngSubmit)="updateUsuario()">
+            <div class="espacio">
+                <div class="field"><br />
+                    <input type="text" id="name" class="form-control primero" [(ngModel)]="User.nombre" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="name" class="form-control segundo" [(ngModel)]="User.apellido" name="apellido" placeholder="apellido" required>
+                </div>
+                <div class="field"><br />
+                    <input type="text" class="form-control" [(ngModel)]="User.email" name="email" placeholder="Email" required>
+                </div>
+                <div class="field"><br />
+                    <input type="text" class="form-control" [(ngModel)]="User.nom_usuario" name="Nombre de Usuario" placeholder="Nombre de Usuario">
+                </div>
+                <div class="field"><br />
+                    <input type="password" id="Contraseña" class="form-control" [(ngModel)]="User.clave" name="clave" placeholder="Contraseña" required>
+                </div>
+                <div class="field"><br />
+                    <input type="number" class="form-control" [(ngModel)]="User.dni" name="dni" placeholder="DNI">
+                </div>
+                <div class="field"><br />
+                    <input type="number" class="form-control" [(ngModel)]="User.telefono" name="telefono" placeholder="Telefono">
+                </div>
+               <br/>
+                <button class="btn btn-primary black-background" type="submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</ng-container>
+<ng-container *ngIf="ok === 'modificarProductor'">
+    <div class="col-md-12 text-center;">
+        <h2 class="espacio">Actualizando Productor</h2>     
+        <form (ngSubmit)="updateUsuario()">
+            <div class="espacio">
+                <div class="field"><br />
+                    <input type="text" id="name" class="form-control primero" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="name" class="form-control segundo" [(ngModel)]="usuario.apellido" name="apellido" placeholder="apellido" required>
+                </div>
+                <div class="field"><br />
+                    <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" placeholder="Email" required>
+                </div>
+                <div class="field"><br />
+                    <input type="number" class="form-control" [(ngModel)]="usuario.dni" name="dni" placeholder="DNI">
+                </div>
+                <div class="field"><br />
+                    <input type="text" class="form-control" [(ngModel)]="usuario.descripcion" name="descripcion" placeholder="Descripicion">
+                </div>
+               <br/>
+                <button class="btn btn-primary black-background" type="submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</ng-container>
+<ng-container *ngIf="ok === 'modificarCli-Adm'">
+    <div class="col-md-12 text-center;">
+        <h2 class="espacio">Actualizar cuenta</h2>     
+        <form (ngSubmit)="updateUsuario()">
+            <div class="espacio">
+                <span class="letra">¿Modificar rango de: {{usuario.nom_usuario}} ?</span>
+                <br/><br/>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Cliente" [(ngModel)]="usuario.tipo_usuario">
+                    <label class="form-check-label letra" for="inlineRadio1">Cliente</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Administrador" [(ngModel)]="usuario.tipo_usuario">
+                    <label class="form-check-label letra" for="inlineRadio2">Administrador</label>
+                </div>
+                <br/><br/>
+                <button class="btn btn-primary black-background" type="submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</ng-container>

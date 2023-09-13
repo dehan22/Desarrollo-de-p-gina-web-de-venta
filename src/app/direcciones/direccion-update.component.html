@@ -1,0 +1,38 @@
+<div class="col-md-4 text-center;" style="margin-left: 35%;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
+    <h3 class="letra">Actualiza los datos de tu domicilio</h3>     
+    <form (ngSubmit)="updateDireccionUsuario()">
+        <div class="Domicilios">
+            <div class="field"><br />
+                <input type="text" id="calle"  [(ngModel)]="Direccion.calle" class="form-control primero" name="calle" placeholder="calle" required>
+                <input type="number" id="numero" [(ngModel)]="Direccion.numero" class="form-control segundo" name="numero" placeholder="numero" required>
+            </div>
+            <div class="field"><br />
+                <span class="letra">¿Entre que calles estas? (Opcional)</span>
+                <input type="text" id="calle_1" [(ngModel)]="Direccion.calle_1" class="form-control primero" name="calle_1" placeholder="calle_1">
+                <input type="text" id="calle_2" [(ngModel)]="Direccion.calle_2" class="form-control segundo" name="calle_2" placeholder="calle_2">
+            </div>
+            <div class="field"><br />
+                <span class="letra">Piso/Departamento (Opcional)</span>
+                <input type="text" id="n_dep" [(ngModel)]="Direccion.n_dep" class="form-control" name="n_dep" placeholder="Nº Piso/Depto">
+            </div>
+            <div class="field"><br />
+                <input type="text" id="ciudad"  [(ngModel)]="Direccion.ciudad" class="form-control primero" name="ciudad" placeholder="ciudad" required>
+                <input type="number" id="codigo_postal" [(ngModel)]="Direccion.codigo_postal" class="form-control segundo" name="codigo_postal" placeholder="codigo postal" required>
+            </div>
+            <div class="field"><br />
+                <input type="text" id="barrio"  [(ngModel)]="Direccion.barrio" class="form-control" name="barrio" placeholder="barrio" required>
+            </div> 
+            <br/>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Casa" [(ngModel)]="Direccion.lugar">
+                <label class="form-check-label" for="inlineRadio1">Casa</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Trabajo" [(ngModel)]="Direccion.lugar">
+                <label class="form-check-label" for="inlineRadio2">Trabajo</label>
+            </div>
+            <br/><br/>
+            <input class="btn btn-primary black-background" style="border: solid #d44141" type="submit" value="Guardar Cambios">
+        </div>
+    </form>
+</div>
