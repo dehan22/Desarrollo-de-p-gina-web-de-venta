@@ -1,5 +1,4 @@
 import { Direccion } from "./direccion";
-import { Pedido } from "./pedido";
 
 export class PuntoRetiro{
     id?: number
@@ -7,5 +6,4 @@ export class PuntoRetiro{
     nombre: string = ""
     telefono: number= 0;
     direccion: Direccion = new Direccion;
-    pedidos: Pedido[] = []
 } 

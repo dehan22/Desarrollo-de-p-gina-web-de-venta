@@ -17,6 +17,7 @@ export class PuntoRetiroUpdateComponent {
   Direcciones: Direccion[]=[];
   User: Usuario = this.servUser.getUserData();
   PuntoRetiro: PuntoRetiro = new PuntoRetiro;
+  direccionSeleccionada: Direccion = new Direccion;
   constructor(
     private servDirec: DireccionService,
     private servUser: UsuarioService,
@@ -39,6 +40,7 @@ export class PuntoRetiroUpdateComponent {
       this.servicio.getPunto_retiro(id).subscribe({
         next: data => {
           this.PuntoRetiro = data;
+          this.direccionSeleccionada = data.direccion;
         },
         error: err => {
           this.servicioMensaje.mostrarMensaje("Error:" + err);
@@ -46,7 +48,13 @@ export class PuntoRetiroUpdateComponent {
       }); 
     }
   }
+
+  direccionSeleccion(valor:Direccion): void {
+		this.direccionSeleccionada = valor;
+	}
+
   modificarPuntoRetiro(){
+    this.PuntoRetiro.direccion = this.direccionSeleccionada;
     this.servicio.modificarPunto_retiro(this.PuntoRetiro).subscribe({
       next: data => {
         this.servicioMensaje.mostrarMensaje("El Punto de Retiro se actualizo con exito");

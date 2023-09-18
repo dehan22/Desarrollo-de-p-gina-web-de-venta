@@ -17,11 +17,12 @@ export class PuntoRetiroNewComponent {
   Direcciones: Direccion[]=[];
   User: Usuario = this.servUser.getUserData();
   PuntoRetiro: PuntoRetiro = new PuntoRetiro;
+  direccionSeleccionada: Direccion = new Direccion;
   constructor(
     private servDirec: DireccionService,
     private servUser: UsuarioService,
     private servicio: PuntoRetiroService,
-    private ruter: Router,
+    private router: Router, 
     private servicioMensaje: AlertaService  
   ){}
   ngOnInit(){
@@ -36,10 +37,16 @@ export class PuntoRetiroNewComponent {
       });  
     }
   }
+  direccionSeleccion(valor:Direccion): void {
+		this.direccionSeleccionada = valor;
+	}
+
   cargarPuntoRetiro(){
+    this.PuntoRetiro.direccion = this.direccionSeleccionada;
     this.servicio.altaPunto_retiro(this.PuntoRetiro).subscribe({
       next: data => {
         this.servicioMensaje.mostrarMensaje("El Punto de Retiro se cargo con exito");
+        this.router.navigate(['/punto_retiro',data.id]);
       },
       error: err => {
         this.servicioMensaje.mostrarMensaje("Error:" + err);

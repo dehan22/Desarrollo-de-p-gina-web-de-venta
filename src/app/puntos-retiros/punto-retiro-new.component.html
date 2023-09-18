@@ -1,16 +1,17 @@
 <div class="col-md-4 text-center;" style="margin-left: 35%;"> <!--Todo dentro de un div para poder trabajarlo como un bloque-->
-    <h3 class="letra">Nuevo Domicilio</h3>     
+    <h3 class="letra">Nuevo Punto de Retiro</h3>
+    <a class="btn btn-primary black-background" [routerLink]="['/direccion/new']" role="button"> Nueva direccion</a>    
     <form (ngSubmit)="cargarPuntoRetiro()">
         <div class="Domicilios">
             <div class="field"><br />
                 <input type="text" id="nombre"  [(ngModel)]="PuntoRetiro.nombre" class="form-control" name="nombre" placeholder="Nombre Persona a Cargo" required>
             </div>
             <div class="field"><br />
-                <input type="number" id="telefono" (ngModel)="PuntoRetiro.telefono" class="form-control" name="telefono" placeholder="telefono" required>
+                <input type="number" id="telefono" [(ngModel)]="PuntoRetiro.telefono" class="form-control" name="telefono" placeholder="telefono" required>
             </div>
             <div class="field-group"><br />
-                <select class="form-select primero" [(ngModel)]="PuntoRetiro.direccion" id="productor" name="productor">
-                    <option *ngFor="let Direccion of Direcciones" [value]="Direccion">Calle: {{ Direccion.calle}}, Numero: {{ Direccion.numero}}</option>
+                <select class="form-select primero" [(ngModel)]="direccionSeleccionada" id="direccion" name="direccion">
+                    <option *ngFor="let Direccion of Direcciones" [ngValue]="Direccion">Calle: {{ Direccion.calle}}, Numero: {{ Direccion.numero}}</option>
                 </select>
             </div>
             <br/><br/>

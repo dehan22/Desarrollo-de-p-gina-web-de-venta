@@ -1,39 +1,70 @@
 <div>
-<select class="form-select primero" (ngModelChange)="productorSeleccionado($event)" [(ngModel)]="productor" id="productor" name="productor">
-    <option default>Seleccione un productor</option>
-    <option *ngFor="let prod of productores" [ngValue]="prod">{{ prod.nombre }} {{ prod.apellido }}</option>
-</select>
-<select class="form-select segundo" #opcion (change)="mostrarSeleccionado(opcion.value)">
-    <option default>Seleccione que desea mostrar</option>
-    <option>Pedidos</option>
-    <option>Entregados</option>
-</select>
-<div *ngIf="mostrar==='Pedidos'">
-        <h2>Lista de Pedidos para {{productor.nombre}} {{productor.apellido}}</h2>
-        <ul>
-            <li *ngFor="let item of items">
-                <div *ngIf="item.pedido.entregado ===false">
-                    {{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}} - {{ item.producto.nombre }} - {{ item.cantidad }} - {{item.pedido.forma_entrega}} - {{item.pedido.direccion}}
-                </div>
-            </li>
-        </ul>
-</div>
-<div *ngIf="mostrar==='Entregados'">
-        <h2>Lista de productos de {{productor.nombre}} {{productor.apellido}} que fueron entregados</h2>
-        <ul>
-            <li *ngFor="let item of items">
-                <div *ngIf="item.pedido.entregado === true">
-                    {{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}} - {{ item.producto.nombre }} - {{ item.producto.precio_unitario }} - {{ item.cantidad }} - {{ item.precio_total }} 
-                </div>
-            </li>
-        </ul>
-</div>
-<div *ngIf="mostrar==='Todos'">
-    <h2>Lista de Pedidos</h2>
-    <ul>
-        <li *ngFor="let pedido of items">
-            {{ pedido.producto.nombre }} - {{ pedido.cantidad }}
-        </li>
-    </ul>
-</div>
-</div>
+    <select class="form-select primero" (ngModelChange)="productorSeleccionado($event)" [(ngModel)]="productor" id="productor" name="productor">
+        <option default>Seleccione un productor</option>
+        <option *ngFor="let prod of productores"  [ngValue]="prod">{{ prod.nombre }} {{ prod.apellido }}</option>
+    </select>
+    <select class="form-select segundo" #opcion (change)="mostrarSeleccionado(opcion.value)">
+        <option default>Seleccione que desea mostrar</option>
+        <option>Pedidos</option>
+        <option>Entregados</option>
+    </select>
+    <div *ngIf="mostrar==='Pedidos'">
+        <div>
+            <h3 style="text-align: center;">Lista de Pedidos para {{productor.nombre}} {{productor.apellido}}</h3>
+            <br/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Forma de entrega</th>
+                    <th>Direccion de entrega</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of items" >
+                    <ng-container *ngIf="item.pedido.entregado ===false">
+                        <td>{{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}}</td>
+                        <td>{{ item.producto.nombre }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>{{item.pedido.forma_entrega}}</td>
+                        <td>{{item.pedido.direccion?.calle}} Nº {{item.pedido.direccion?.numero}}</td>  
+                    </ng-container>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      
+    <div *ngIf="mostrar==='Entregados'">
+        <div>
+            <h3 style="text-align: center;"> Listado de productos entregados de {{productor.nombre}} {{productor.apellido}}</h3>
+            <br/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Forma de entrega</th>
+                    <th>Direccion de entrega</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of items" >
+                    <ng-container *ngIf="item.pedido.entregado ===true">
+                        <td>{{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}}</td>
+                        <td>{{ item.producto.nombre }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>{{item.pedido.forma_entrega}}</td>
+                        <td>{{item.pedido.direccion?.calle}} Nº {{item.pedido.direccion?.numero}}</td>  
+                    </ng-container>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="mostrar==='Todos'">
+    </div>
+    </div>

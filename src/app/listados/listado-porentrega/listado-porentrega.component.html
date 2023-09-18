@@ -4,22 +4,54 @@
     <option>Retiro</option>
 </select>
 <div *ngIf="mostrar==='Domicilio'">
-    <h2>Lista de Pedidos para entrega a domicilio</h2>
-    <ul>
-        <li *ngFor="let item of items">
-            <div *ngIf="item.pedido.forma_entrega === 'Domicilio'">
-                {{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}} - {{ item.producto.nombre }} - {{ item.cantidad }} - {{item.pedido.direccion}}
-            </div>
-        </li>
-    </ul>
+    <div>
+    	<h3 style="text-align: center;">Lista de Pedidos para entrega a domicilio</h3>
+        <br/>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Domicilio de entrega</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of items" >
+                <ng-container *ngIf="item.pedido.forma_entrega === 'Domicilio'">
+                    <td>{{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}}</td>
+                    <td>{{ item.producto.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{item.pedido.direccion?.calle}} Nº {{item.pedido.direccion?.numero}}</td>  
+                </ng-container>
+              </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div *ngIf="mostrar==='Retiro'">
-    <h2>Lista de productos para retiro</h2>
-    <ul>
-        <li *ngFor="let item of items">
-            <div *ngIf="item.pedido.entregado === true">
-                {{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}} - {{ item.producto.nombre }} - {{ item.cantidad }}  - {{item.pedido.direccion}}
-            </div>
-        </li>
-    </ul>
+    <div>
+    	<h3 style="text-align: center;">Lista de Pedidos para retirar en punto de retiro</h3>
+        <br/>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Direccion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of items" >
+                <ng-container *ngIf="item.pedido.forma_entrega === 'Retiro'">
+                    <td>{{item.pedido.usuario?.apellido}}, {{item.pedido.usuario?.nombre}}</td>
+                    <td>{{ item.producto.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{item.pedido.direccion?.calle}} Nº {{item.pedido.direccion?.numero}}</td>  
+                </ng-container>
+              </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
