@@ -17,6 +17,7 @@
                 <td>{{ pedido.preciototal }}</td>
                 <td>{{ pedido.productos.length }}</td>
                 <td><a class="btn btn-primary black-background" [routerLink]="['/pedido', pedido.id]" role="button">Ver pedido</a></td>
+                <td *ngIf="pedido.entregado !== true"><a class="btn btn-danger black-background" [routerLink]="['/pedido', pedido.id, 'cancelar']" role="button">Cancelar pedido</a></td>
             </tr>
             </tbody>
         </table>

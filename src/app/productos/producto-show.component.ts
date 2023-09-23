@@ -43,7 +43,13 @@ export class ProductoShowComponent {
   }
   getProducto(): void {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
-    this.servicio.getProducto(id).subscribe(producto => this.producto = producto);
+    this.servicio.getProducto(id).subscribe({
+      next: producto => {
+        this.producto = producto;
+        if (producto.stock < 1)
+          this.deshabilitarCompra = true;
+      }
+    });
   }
 
   verificarRonda(){

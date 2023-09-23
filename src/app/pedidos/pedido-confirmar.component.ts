@@ -11,6 +11,7 @@ import { Ronda } from '../modelos/ronda';
 import { RondaService } from '../servicios/ronda.service';
 import { ItemProductoService } from '../servicios/item-producto.service';
 import { ItemProducto } from '../modelos/ItemProducto';
+import { ProductoService } from '../servicios/producto.service';
 
 @Component({
   selector: 'app-pedido-confirmar',
@@ -35,6 +36,7 @@ export class PedidoConfirmarComponent {
     private servicioPunto: PuntoRetiroService,
     private servicioRonda: RondaService,
     private servItem: ItemProductoService,
+    private servProducto: ProductoService, 
     private route: ActivatedRoute,
     private router: Router
      ){
@@ -42,7 +44,6 @@ export class PedidoConfirmarComponent {
   
   ngOnInit(): void {
     this.getPedido();
-    this.colocarPrecio();
     this.fechas.push(this.proximoDia(5)); 
     this.fechas.push(this.proximoDia(6));
     this.servicioRonda.getRondaActual().subscribe(ronda => this.rondaActual = ronda);
@@ -52,16 +53,14 @@ export class PedidoConfirmarComponent {
 
     this.servicio.getPedido(id)
       .subscribe(pedido => this.pedido = pedido);
+      this.servItem.getItems(Number(id)).subscribe( items => {this.items = items});
   }
 
   colocarPrecio(): void{
-    const id: number = Number(this.route.snapshot.paramMap.get('id'));
-    this.servItem.getItems(Number(id)).subscribe( items => {this.items = items
-      items.forEach((value) => {
-        this.precio_total_pedido += value.precio_total;
-      }),
-      this.pedido.preciototal = this.precio_total_pedido;
+    this.items.forEach((value) => {
+      this.precio_total_pedido += value.precio_total;
     });
+    this.pedido.preciototal = this.precio_total_pedido;
   }
 
   onSelected(value:string): void {
@@ -91,6 +90,8 @@ export class PedidoConfirmarComponent {
 
 
   confirmarPedido(){
+    this.checkStock();
+    this.colocarPrecio();
     this.pedido.confirmado = true;
     this.pedido.forma_entrega = this.tipoEntrega;
     this.pedido.ronda = this.rondaActual;
@@ -103,5 +104,23 @@ export class PedidoConfirmarComponent {
       next: response => {console.log('Pedido confirmado:', response), this.router.navigate(['']);},
       error: err => {console.log('Error al confirmar pedido:', err.error);}
     });
+  }
+
+  checkStock(){
+    this.items.forEach((value) => {
+      if (value.producto.stock <= value.cantidad){
+        value.cantidad = value.producto.stock;
+        value.precio_total = value.producto.precio_unitario * value.cantidad;
+        value.producto.stock = 0;
+      }
+      else{
+        value.producto.stock = value.producto.stock - value.cantidad;
+      }
+      this.servProducto.modificarProducto(value.producto).subscribe({
+        next: response => {console.log('Se modifico el producto confirmado:', response);},
+        error: err => {console.log('Error al modificar producto:', err.error);}
+      });
+    })
+    this.pedido.productos = this.items;
   }
 }
