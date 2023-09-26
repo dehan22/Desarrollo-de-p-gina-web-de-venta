@@ -67,5 +67,6 @@ export class UsuarioUpdateComponent {
         error: err => {console.log('Error al actualizar usuario:', err.error.msg);}
       });
     }
+    this.router.navigate(['']);
   }
 }

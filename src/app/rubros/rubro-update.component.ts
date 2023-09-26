@@ -44,5 +44,6 @@ export class RubroUpdateComponent {
         console.log('Error al actualizar rubro:', err.error.msg);
       }
     });
+    this.router.navigate(['/rubros']);
   }
 }
